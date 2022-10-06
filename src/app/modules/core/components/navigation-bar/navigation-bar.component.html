@@ -13,7 +13,7 @@
     <div class="">
       <ul fxLayout fxLayoutGap="20px" class="navigation-items d-flex justify-content-center align-items-center">
       
-        <li>
+        <li *ngIf="isAuthenticated">
           <button mat-icon-button (click)="Logout()" title="logout">
             <mat-icon> exit_to_app </mat-icon>
           </button>

@@ -15,13 +15,16 @@ import { SlideInOutAnimation } from '../../animations';
 })
 export class NavigationBarComponent implements OnInit {
   animationState = 'out';
- 
+  isAuthenticated=false;
+
   constructor(
-    private store:Store,
+    private _store:Store,
+    private _router:Router
   ) { }
   
 
   ngOnInit(): void {
+    this._store.select(AuthSelectors.selectIsAuthenticated).subscribe(result=>this.isAuthenticated=result)
   }
 
   toggleMenu(className: string) {
@@ -30,6 +33,7 @@ export class NavigationBarComponent implements OnInit {
     }
   }
   Logout(){
-    
+        this._store.dispatch(AuthActions.Logout());
+        this._router.navigateByUrl('/auth/login');
   }
 }
