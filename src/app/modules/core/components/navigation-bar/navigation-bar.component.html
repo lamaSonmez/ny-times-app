@@ -1,0 +1,35 @@
+<mat-toolbar color="primary" class="navigation-bar">
+
+  <mat-toolbar-row class="d-flex justify-content-between">
+
+    <div class="d-flex align-items-center w-50">
+      <div class="">
+
+        <span class="toolbar-title">NY Times App</span>
+
+      </div>
+    
+    </div>
+    <div class="">
+      <ul fxLayout fxLayoutGap="20px" class="navigation-items d-flex justify-content-center align-items-center">
+      
+        <li>
+          <button mat-icon-button (click)="Logout()" title="logout">
+            <mat-icon> exit_to_app </mat-icon>
+          </button>
+        </li>
+        <li>
+          <button mat-icon-button class="d-lg-none d-md-none d-sm-none"  (click)="toggleMenu('nav-mobile-row')">
+            <mat-icon>menu</mat-icon>
+          </button>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </mat-toolbar-row>
+
+
+
+</mat-toolbar>
