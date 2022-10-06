@@ -16,6 +16,23 @@ export const initialState: State = {
 
 export const reducer = createReducer(
   initialState,
+  on(fromAuthActions.LoginSuccess,(state,action)=>{
+    return{
+      ...state,
+      isAuthenticated:true,
+      currentUser:{
+        username:action.username,
+      },
+    }
+  }),
+
+  on(fromAuthActions.Logout,(state,action)=>{
+    return{
+      ...state,
+      currentUser:{},
+      isAuthenticated:false,
+    }
+  })
 
 );
 
