@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  authBaseAPI:'http://localhost:8000/auth/'
+  authBaseAPI:'http://localhost:8000/auth/',
+  appBaseAPI:'https://developer.nytimes.com/docs/'
 };
 
 /*
