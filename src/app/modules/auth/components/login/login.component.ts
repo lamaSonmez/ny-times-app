@@ -1,14 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import * as fromAuthActions from '@auth/store/auth.actions';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit , OnDestroy {
+
+  private  _subscriptions = new Subscription();
+  
   returnUrl:string='';
   username:string='';
   password:string='';
@@ -18,10 +22,12 @@ export class LoginComponent implements OnInit {
   ) { 
 
   }
+ 
 
   ngOnInit(): void {
-    this._route.queryParamMap.subscribe(params=>this.returnUrl=params.get('returnUlr')||'');
-    
+    this._subscriptions.add(
+      this._route.queryParamMap.subscribe(params=>this.returnUrl=params.get('returnUlr')||'')
+    );
   }
 
   onSubmit(): void {
@@ -31,7 +37,12 @@ export class LoginComponent implements OnInit {
         password:this.password
       },
       returnUrl:this.returnUrl}));
+  }
 
+  
+  ngOnDestroy(): void {
+    //unsubscribe to avoid memeory leak
+   this._subscriptions.unsubscribe();
   }
 
 }
