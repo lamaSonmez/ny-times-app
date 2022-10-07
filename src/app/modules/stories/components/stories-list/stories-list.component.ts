@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import * as fromStoriesActions from '@stories/store/stories.actions';
@@ -29,14 +29,23 @@ export class StoriesListComponent implements OnInit ,OnDestroy{
   }
 ];
   selected=0;
+  page=0;
   constructor(
     private _store:Store,
-    private _cdr:ChangeDetectorRef
+    private _cdr:ChangeDetectorRef,
   ) { }
   
   search(event:any){
     if(this.historyOfSearch.length<5){
       this.historyOfSearch.push(event.target.value);
+    }
+    else{
+      this.historyOfSearch=[];
+      this.historyOfSearch.push(event.target.value);
+    }
+    if(event.target.value){
+      this.page=0;
+      this._store.dispatch(fromStoriesActions.searchStories({search:event.target.value,page:this.page}))
     }
   }
 
@@ -47,7 +56,9 @@ export class StoriesListComponent implements OnInit ,OnDestroy{
         this.topStories=stories;
         this._cdr.detectChanges();
       })
-    )
+    );
+
+   
   }
 
   onCategoryChange(event:MatTabChangeEvent){
@@ -55,7 +66,14 @@ export class StoriesListComponent implements OnInit ,OnDestroy{
 
   }
 
+  loadMoreData(){
+    this.page++;
+    this._store.dispatch(fromStoriesActions.searchStories({search:this.searchString,page:this.page}))
+  }
+
   ngOnDestroy(): void {
     this._subscriptions.unsubscribe();
   }
+
+  
 }

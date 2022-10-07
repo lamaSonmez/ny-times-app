@@ -9,6 +9,10 @@ const actionTypes ={
 
   SetCurrentStory :'[STORIES | PAGE] set current story',
 
+  SearchStories:'[STORIES | PAGE] search  stories',
+  SearchStoriesSuccess:'[STORIES | PAGE] search stories success',
+  SearchStoriesFailure:'[STORIES | PAGE] search stories failure',
+
   }
 
   export const fetchTopStories = createAction(
@@ -29,4 +33,21 @@ const actionTypes ={
   export const SetCurrentStory = createAction(
     actionTypes.SetCurrentStory,
     props<{story:Story}>()
+  ); 
+
+
+  
+  export const searchStories = createAction(
+    actionTypes.SearchStories,
+    props<{search:string,page:number}>()
+  ); 
+
+  export const searchStoriesSuccess = createAction(
+    actionTypes.SearchStoriesSuccess,
+    props<{stories:Story[]}>()
+  ); 
+
+  export const SearchStoriesFailure = createAction(
+    actionTypes.SearchStoriesFailure,
+    props<{errory:any}>()
   ); 

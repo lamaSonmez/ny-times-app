@@ -31,4 +31,23 @@ export class StoriesEffects {
       );
     })
 
+    searchStories$ = createEffect(() => {
+      return this.actions$.pipe(
+        ofType(fromStoriesActions.searchStories),
+        mergeMap((action) =>
+          this._storiesService
+            .searchStoriees(action.search,action.page)
+              .pipe(
+                map((response:any) => {
+                  return fromStoriesActions.searchStoriesSuccess({
+                    stories:response.response.docs
+                  }
+                  );
+                }),
+                catchError((error) => of(fromStoriesActions.SearchStoriesFailure(error)))
+              )
+        )
+      );
+    })
+
 }

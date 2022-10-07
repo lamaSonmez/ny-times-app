@@ -24,7 +24,8 @@ export const initialState: State = {
 
 export const reducer = createReducer(
   initialState,
-  on(fromStoriesActions.FetchTopStoriesSuccess
+  on(
+    fromStoriesActions.FetchTopStoriesSuccess
     ,(state,action)=>{
     return{
       ...state,
@@ -35,7 +36,10 @@ export const reducer = createReducer(
       }
     }
   }),
-  on(fromStoriesActions.fetchTopStories
+
+
+  on(
+    fromStoriesActions.fetchTopStories
     ,(state,action)=>{
     return{
       ...state,
@@ -43,6 +47,34 @@ export const reducer = createReducer(
         ...state.topStroies,
         results:[],
         num_results:0
+      }
+    }
+  }),
+
+  on(
+    fromStoriesActions.searchStories
+    ,(state,action)=>{
+    return{
+      ...state,
+      topStroies:{
+        ...state.topStroies,
+        results: action.page ? state.topStroies.results:[],
+        num_results:0
+      }
+    }
+  }),
+  on(
+    fromStoriesActions.searchStoriesSuccess
+    ,(state,action)=>{
+    return{
+      ...state,
+      topStroies:{
+        ...state.topStroies,
+        results:[
+          ...action.stories,
+          ...state.topStroies.results,
+        ],
+        num_results:action.stories.length
       }
     }
   }),
