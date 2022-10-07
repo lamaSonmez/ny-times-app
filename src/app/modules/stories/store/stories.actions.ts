@@ -1,3 +1,4 @@
+import { PaginatedResult } from "@core/models/pagination";
 import {createAction, props} from "@ngrx/store";
 import { Story } from "@stories/models/story.model";
 
@@ -15,7 +16,7 @@ const actionTypes ={
 
   export const FetchTopStoriesSuccess = createAction(
     actionTypes.FetchTopStoriesSuccess,
-    props<{storeis:Story[]}>()
+    props<{stories:PaginatedResult<Story>}>()
   ); 
 
   export const FetchTopStoriesFailure = createAction(

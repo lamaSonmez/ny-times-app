@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { MaterialModule } from './material/material.module';
@@ -31,6 +31,6 @@ import {ToasterModule} from 'angular2-toaster';
     MaterialModule,
     SpinnerComponent,
     ToasterComponent
-  ]
+  ],
 })
 export class CoreModule { }

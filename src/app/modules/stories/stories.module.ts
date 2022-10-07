@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { StoriesListComponent } from './components/stories-list/stories-list.component';
 import { StoryItemComponent } from './components/story-item/story-item.component';
 import { StoriesStoreModule } from './store/stories-store.module';
+import { StoriesRoutingModule } from './stories-routing.module';
+import { CoreModule } from '@core/core.module';
 
 
 
@@ -14,7 +16,11 @@ import { StoriesStoreModule } from './store/stories-store.module';
   imports: [
     CommonModule,
     //Store
-    StoriesStoreModule
+    StoriesStoreModule,
+    //Routing
+    StoriesRoutingModule,
+    //Core,
+    CoreModule
   ]
 })
 export class StoriesModule { }

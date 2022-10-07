@@ -22,7 +22,7 @@ export class StoriesEffects {
             .getTopStories(action.section)
               .pipe(
                 map((response:any) => fromStoriesActions.FetchTopStoriesSuccess({
-                  storeis:response.result 
+                  stories:response 
                 }
                 )),
                 catchError((error) => of(fromStoriesActions.FetchTopStoriesFailure(error)))

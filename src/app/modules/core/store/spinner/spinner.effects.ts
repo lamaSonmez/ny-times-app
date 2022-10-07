@@ -18,8 +18,8 @@ export class SpinnerEffects {
 			this.actions$.pipe(
 				ofType(SpinnerActions.showSpinner),
 				tap(() => {
-          this.spinner.show();
-        })
+					this.spinner.show();
+				})
 			),
 		{ dispatch: false }
 	);
@@ -28,7 +28,11 @@ export class SpinnerEffects {
 			this.actions$.pipe(
 				ofType(SpinnerActions.hideSpinner),
 				tap(() => {
-          this.spinner.hide();
+          			//
+					  setTimeout(() => {
+						/** spinner ends after 5 seconds */
+						this.spinner.hide();
+					  }, 5000);
 				})
 			),
 		{ dispatch: false }
