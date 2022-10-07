@@ -1,57 +1,34 @@
-<div class="container-fluid p-4 d-flex align-items-center justify-content-center">
-    <div class="row justify-content-center  d-flex ">
-      <div class="col-md-10 col-sm-11">
-        
-          <div class="row d-flex p-0 login-container">
-            <div
-              class="col-md-6 col-xs-12 col-sm-12 p-0 d-flex justify-content-center"
-            >
-            <form class="w-100" ngNativeValidate (ngSubmit)="onSubmit()">
-                <div class="row">
-                  <div class="col-12">
-                    <div class="title">
-                      <h3 class="text-center mat-primary mb-5 mt-5 ">Login</h3>
-                    </div>
-                  </div>
-                </div>
-                <mat-divider></mat-divider>
-                <div class="row mt-5 d-flex justify-content-center flex-column  align-items-center  pl-5 pr-5">
-                  <div class="col-md-6 col-xs-11 col-sm-11 d-flex mb-4 ">
-                    <div class="d-flex justify-content-center flex-column w-100">
-                      <!-- <label class="bold-label primary-color d-block">Username</label> -->
-                      <mat-form-field appearance="outline">
-                        <mat-label>Email</mat-label>
-                        <input name="username" type="email" matInput placeholder="Username" [(ngModel)]="username">
-                        <mat-icon matSuffix>supervised_user_circle</mat-icon>
-                      </mat-form-field>
-                    </div>
-                  </div>
-                  <div class="col-md-6 col-xs-11 col-sm-11 d-flex justify-content-center mb-5">
-                    <div class="d-flex flex-column  w-100">
-                        <mat-form-field appearance="outline">
-                            <mat-label>Password</mat-label>
-                            <input name="password" matInput placeholder="Passwoed" type="password"  [(ngModel)]="password">
-                            <mat-icon matSuffix>lock</mat-icon>
-                          </mat-form-field>
-                    </div>
-                  </div>
-                  <div class="col-12 text-center mt-1">
-                    <button mat-raised-button type="submit" color="primary" class="login-button">Login</button>
-                  </div>
-                </div>
-            </form>
-              
-            </div>
-            <div class="col-md-6 col-xs-12 col-sm-12 p-0 flex-1">
-              <div class="img-container">
-                <div class="content">
-                  <img src="./assets/images/LoginBig.jpg" />
-                </div>
-              </div>
-            </div>
-          </div>
-        
+<form class="w-100" ngNativeValidate (ngSubmit)="onSubmit()">
+  <div class="row">
+    <div class="col-12">
+      <div class="title">
+        <h3 class="text-center mat-primary mb-5 mt-5 ">Login</h3>
       </div>
     </div>
   </div>
-  
+  <mat-divider></mat-divider>
+  <div class="row mt-5 d-flex justify-content-center flex-column  align-items-center  pl-5 pr-5">
+    <div class="col-md-6 col-xs-11 col-sm-11 d-flex mb-4 ">
+      <div class="d-flex justify-content-center flex-column w-100">
+        <!-- <label class="bold-label primary-color d-block">Username</label> -->
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input name="username" type="email" matInput placeholder="Username" [(ngModel)]="username">
+          <mat-icon matSuffix>supervised_user_circle</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="col-md-6 col-xs-11 col-sm-11 d-flex justify-content-center mb-5">
+      <div class="d-flex flex-column  w-100">
+          <mat-form-field appearance="outline">
+              <mat-label>Password</mat-label>
+              <input name="password" matInput placeholder="Passwoed" type="password"  [(ngModel)]="password">
+              <mat-icon matSuffix>lock</mat-icon>
+            </mat-form-field>
+      </div>
+    </div>
+    <div class="col-12 text-center mt-1">
+      <button mat-raised-button type="submit" color="primary" class="login-button">Login</button>
+    </div>
+  </div>
+</form>

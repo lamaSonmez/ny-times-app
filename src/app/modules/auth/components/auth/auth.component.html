@@ -1,0 +1,30 @@
+<div class="container-fluid p-4 d-flex align-items-center justify-content-center">
+    <div class="row justify-content-center  d-flex ">
+      <div class="col-md-10 col-sm-11">
+        
+          <div class="row d-flex p-0 login-container">
+            <ng-container *ngIf="!registerAccount; else registerTpl">
+                <div class="col-md-6 col-xs-12 col-sm-12 p-0 ">
+                    <app-login class="w-100 d-flex justify-content-center"></app-login>
+                      <div class="create-account w-100 p-0 d-flex justify-content-center mt-1 mb-1">
+                        <a  href="#" (click)="showRegisterForm($event)">create account</a>
+                    </div>
+                </div>
+              
+            </ng-container>
+            <ng-template #registerTpl>
+                <app-register class="col-md-6 col-xs-12 col-sm-12 p-0 d-flex justify-content-center "></app-register>
+            </ng-template>
+            <div class="col-md-6 col-xs-12 col-sm-12 p-0 flex-1">
+              <div class="img-container">
+                <div class="content">
+                  <img src="./assets/images/LoginBig.jpg" />
+                </div>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+  

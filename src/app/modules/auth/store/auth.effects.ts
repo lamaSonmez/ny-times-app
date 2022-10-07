@@ -88,5 +88,24 @@ this.actions$.pipe(
 )
 );
 
+register$ = createEffect(() => {
+  return this.actions$.pipe(
+    ofType(fromAuthActions.register),
+    mergeMap((action) =>
+      this._authService
+        .register(action.params.username,action.params.password)
+          .pipe(
+            map((response:any) => fromAuthActions.LoginSuccess({
+              accessToken:response.access_token,
+              returnUrl:action.returnUrl,
+              username:action.params.username
+            }
+            )),
+            catchError((error) => of(fromAuthActions.LoginFailure({ error })))
+          )
+    )
+  );
+})
+
 
 }

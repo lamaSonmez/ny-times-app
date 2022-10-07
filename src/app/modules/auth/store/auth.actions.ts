@@ -8,7 +8,9 @@ const actionTypes ={
     LogoutActionType:'[Login-Page] Logout Action',
     
     StoreTokenType:'[Auth Effect] | Store Token',
-    RedirectType:'[Auth Effect] | Redirect '
+    RedirectType:'[Auth Effect] | Redirect ',
+
+    RegisterAccount:'[Register | Page] register account'
   }
 
   export const Login = createAction(
@@ -40,3 +42,9 @@ const actionTypes ={
     props<{ returnUrl:string|'' }>()
   
   )
+
+
+  export const register = createAction(
+    actionTypes.RegisterAccount,
+    props<{params:{ username: string,password:string },returnUrl:string}>()
+  );

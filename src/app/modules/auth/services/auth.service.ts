@@ -24,5 +24,14 @@ export class AuthService {
     
   }
  
-
+  //Register API call
+  register(username:string,password:string) :Observable<Object>{
+    return this._apiService.post(`${environment.authBaseAPI}register`,
+    {
+      email:username,
+      password:password
+    })
+    
+  }
+ 
 }
