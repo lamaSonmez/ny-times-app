@@ -7,6 +7,8 @@ const actionTypes ={
   FetchTopStoriesSuccess:'[STORIES | PAGE] fetch top stories success',
   FetchTopStoriesFailure:'[STORIES | PAGE] fetch top stories failure',
 
+  SetCurrentStory :'[STORIES | PAGE] set current story',
+
   }
 
   export const fetchTopStories = createAction(
@@ -22,4 +24,9 @@ const actionTypes ={
   export const FetchTopStoriesFailure = createAction(
     actionTypes.FetchTopStoriesFailure,
     props<{errory:any}>()
+  ); 
+
+  export const SetCurrentStory = createAction(
+    actionTypes.SetCurrentStory,
+    props<{story:Story}>()
   ); 

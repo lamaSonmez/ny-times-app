@@ -16,6 +16,8 @@ import { MatTabChangeEvent } from '@angular/material/tabs';
 export class StoriesListComponent implements OnInit ,OnDestroy{
   private  _subscriptions = new Subscription();
   
+  searchString:string='';
+  historyOfSearch:string[]=[];
   topStories!:PaginatedResult<Story>;
   categories=[{
     name:'Science',
@@ -32,6 +34,11 @@ export class StoriesListComponent implements OnInit ,OnDestroy{
     private _cdr:ChangeDetectorRef
   ) { }
   
+  search(event:any){
+    if(this.historyOfSearch.length<5){
+      this.historyOfSearch.push(event.target.value);
+    }
+  }
 
   ngOnInit(): void {
     this._store.dispatch(fromStoriesActions.fetchTopStories({section:this.categories[this.selected].code}));

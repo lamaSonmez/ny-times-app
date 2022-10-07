@@ -5,16 +5,21 @@ import { StoryItemComponent } from './components/story-item/story-item.component
 import { StoriesStoreModule } from './store/stories-store.module';
 import { StoriesRoutingModule } from './stories-routing.module';
 import { CoreModule } from '@core/core.module';
+import { StoryDetailsComponent } from './components/story-details/story-details.component';
+import { FormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   declarations: [
     StoriesListComponent,
-    StoryItemComponent
+    StoryItemComponent,
+    StoryDetailsComponent
   ],
   imports: [
     CommonModule,
+    //forms
+    FormsModule,
     //Store
     StoriesStoreModule,
     //Routing

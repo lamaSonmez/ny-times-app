@@ -8,9 +8,10 @@
 
     <!--end::Story-->
     <!--begin::title-->
-    <div class="my-2">
+    <div class="my-1">
       <a
-        href="#"
+        (click)="SetStory(story)"
+        [routerLink]="'/stories/detail'"
         class="text-dark font-weight-bold text-hover-primary font-size-h4"
         >{{ story.title }}</a
       >
@@ -23,11 +24,12 @@
     </span>
     <!--end::section-->
     <!--begin::Buttons-->
-    <div class="mt-7 mb-7">
-      <a
-        class="btn btn-block btn-sm btn-light-warning font-weight-bolder text-uppercase py-4 text-center"
-        >View Story</a
-      >
+    <div class="mt-1 mb-1">
+      <button
+        (click)="SetStory(story)"
+        [routerLink]="'/stories/detail'"
+        class="btn btn-block btn-sm btn-light-warning font-weight-bolder text-uppercase py-4 text-center color-accent"
+        >View Story</button>
     </div>
     <!--end::Buttons-->
   </div>

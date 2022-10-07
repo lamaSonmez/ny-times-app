@@ -13,8 +13,15 @@
             [label]="category.name"
             class="p-4"
           >
-        <div class="title-container d-flex justify-content-between mt-3">
-            <h3>Top Stories:</h3>
+        <div class="title-container d-flex justify-content-between align-items-center mt-3">
+            <h3><strong>Top Stories:</strong></h3>
+            <div class="search-container">
+              <mat-form-field appearance="outline">
+                <mat-label>Search Articles</mat-label>
+                <input (onChange)="search($event)" name="search" type="text" matInput placeholder="..." [(ngModel)]="searchString">
+                <mat-icon matSuffix>search</mat-icon>
+              </mat-form-field>
+            </div>
         </div>
         <div class="row">
             <div class="col-sm-6 col-md-3 col-xs-12" *ngFor=" let item of topStories.results">

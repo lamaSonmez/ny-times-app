@@ -11,3 +11,9 @@ export const selectTopStories = createSelector(
   selectStoriesState,
   (state: storiesReducer.State) => state.topStroies
 );
+
+
+export const selectCurrentStory = createSelector(
+  selectStoriesState,
+  (state: storiesReducer.State) => state.currentStory
+);

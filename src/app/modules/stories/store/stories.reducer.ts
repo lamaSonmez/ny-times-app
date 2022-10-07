@@ -6,7 +6,8 @@ import * as fromStoriesActions from './stories.actions'
 export const storiesFeatureKey = 'stories';
 
 export interface State {
- topStroies:PaginatedResult<Story>
+ topStroies:PaginatedResult<Story>,
+ currentStory:Story ;
 }
 
 export const initialState: State = {
@@ -16,8 +17,8 @@ export const initialState: State = {
     per_page: 0,
     total_pages: 0,
     page: 0,
-
   },
+  currentStory:{} as Story
 };
 
 
@@ -43,6 +44,14 @@ export const reducer = createReducer(
         results:[],
         num_results:0
       }
+    }
+  }),
+
+  on(fromStoriesActions.SetCurrentStory
+    ,(state,action)=>{
+    return{
+      ...state,
+      currentStory:action.story
     }
   }),
 
