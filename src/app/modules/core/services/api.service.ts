@@ -28,7 +28,9 @@ export class ApiService {
        this._store.dispatch(SpinnerActions.showSpinner())
      }
     return this._http.get(`${endPoint}`, options).pipe(
-       finalize(() => showSpinner ? this._store.dispatch(SpinnerActions.hideSpinner()) : ''),
+       finalize(() => {
+        showSpinner ? this._store.dispatch(SpinnerActions.hideSpinner()) : ''
+       }),
     );
   }
 
