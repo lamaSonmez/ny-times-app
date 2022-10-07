@@ -15,7 +15,14 @@ export const initialState: State = {
 
 export const reducer = createReducer(
   initialState,
- 
+  on(fromStoriesActions.FetchTopStoriesSuccess
+    ,(state,action)=>{
+    return{
+      ...state,
+      topStroies:action.storeis
+    }
+  }),
+
 
 );
 
