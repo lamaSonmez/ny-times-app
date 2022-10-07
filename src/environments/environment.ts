@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   authBaseAPI:'http://localhost:8000/auth/',
-  appBaseAPI:'https://developer.nytimes.com/docs/'
+  appBaseAPI:'https://api.nytimes.com/svc/',
+  APIKey:'j7vbVDFQhM3kD9MZKOd8w3Gc65wJMMfJ  '
 };
 
 /*
