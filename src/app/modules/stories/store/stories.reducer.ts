@@ -8,6 +8,7 @@ export const storiesFeatureKey = 'stories';
 export interface State {
  topStroies:PaginatedResult<Story>,
  currentStory:Story ;
+ comments:any[]
 }
 
 export const initialState: State = {
@@ -18,7 +19,8 @@ export const initialState: State = {
     total_pages: 0,
     page: 0,
   },
-  currentStory:{} as Story
+  currentStory:{} as Story,
+  comments:[]
 };
 
 
@@ -83,10 +85,18 @@ export const reducer = createReducer(
     ,(state,action)=>{
     return{
       ...state,
-      currentStory:action.story
+      currentStory:action.story,
+      comments:[]
     }
   }),
-
+  on(
+    fromStoriesActions.FetchStoryCommentsSuccess
+    ,(state,action)=>{
+    return{
+      ...state,
+      comments:action.comments
+    }
+  }),
 
 );
 

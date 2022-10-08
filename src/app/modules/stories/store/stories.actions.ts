@@ -9,6 +9,11 @@ const actionTypes ={
 
   SetCurrentStory :'[STORIES | PAGE] set current story',
 
+  FetchStoryComments :'[STORIES | DETAILS PAGE] fetch story comments',
+  FetchStoryCommentsSuccess :'[STORIES | DETAILS PAGE] fetch story comments success',
+  FetchStoryCommentsFailure :'[STORIES | DETAILS PAGE] fetch story comments success',
+
+
   SearchStories:'[STORIES | PAGE] search  stories',
   SearchStoriesSuccess:'[STORIES | PAGE] search stories success',
   SearchStoriesFailure:'[STORIES | PAGE] search stories failure',
@@ -50,4 +55,19 @@ const actionTypes ={
   export const SearchStoriesFailure = createAction(
     actionTypes.SearchStoriesFailure,
     props<{errory:any}>()
+  ); 
+
+  export const FetchStoryComments = createAction(
+    actionTypes.FetchStoryComments,
+    props<{story:Story}>()
+  ); 
+
+  export const FetchStoryCommentsSuccess = createAction(
+    actionTypes.FetchStoryCommentsSuccess,
+    props<{comments:any[]}>()
+  ); 
+
+  export const FetchStoryCommentsFailure = createAction(
+    actionTypes.FetchStoryCommentsFailure,
+    props<{error:any}>()
   ); 

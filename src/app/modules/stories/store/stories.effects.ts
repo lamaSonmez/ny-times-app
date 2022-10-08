@@ -50,4 +50,20 @@ export class StoriesEffects {
       );
     })
 
+    fetchStoryComments$ = createEffect(() => {
+      return this.actions$.pipe(
+        ofType(fromStoriesActions.FetchStoryComments),
+        mergeMap((action) =>
+          this._storiesService
+            .getComments(action.story)
+              .pipe(
+                map((response:any) => fromStoriesActions.FetchStoryCommentsSuccess({
+                  comments:response 
+                }
+                )),
+                catchError((error) => of(fromStoriesActions.FetchStoryCommentsFailure(error)))
+              )
+        )
+      );
+    })
 }

@@ -17,3 +17,9 @@ export const selectCurrentStory = createSelector(
   selectStoriesState,
   (state: storiesReducer.State) => state.currentStory
 );
+
+
+export const selectStoryComments = createSelector(
+  selectStoriesState,
+  (state: storiesReducer.State) => state.comments
+);
