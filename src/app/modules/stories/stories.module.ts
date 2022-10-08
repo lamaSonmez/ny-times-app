@@ -7,6 +7,7 @@ import { StoriesRoutingModule } from './stories-routing.module';
 import { CoreModule } from '@core/core.module';
 import { StoryDetailsComponent } from './components/story-details/story-details.component';
 import { FormsModule } from '@angular/forms';
+import { CommentItemComponent } from './components/comment-item/comment-item.component';
 
 
 
@@ -14,7 +15,8 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     StoriesListComponent,
     StoryItemComponent,
-    StoryDetailsComponent
+    StoryDetailsComponent,
+    CommentItemComponent
   ],
   imports: [
     CommonModule,
