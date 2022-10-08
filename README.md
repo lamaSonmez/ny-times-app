@@ -2,26 +2,58 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.3.
 
-## Development server
+## Run The Application
+ - clone the project to your machine.
+ - install packages used by Runining `npm install`.
+ - navigate to project folder and Run `ng server`.
+ - since we are using jsonserver we need to run that server on 
+   - go to auth-server by typing `cd auth-server`
+   - Run `npm run start-auth`
+the server will be runing at `http://localhost:8080`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Application Structure
+The application is consists of 3 modules
+ 1- core module 
+ 2- auth module 
+ 3- stories module 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Each module is consist of 
+ - components : here all module components will be
+ - models : module classes & interfaces
+ - store : module state 
+ - services : module services
 
-## Build
+## Core Module
+In The Core module we have also 
+- interceptors Folder  : inside it you will find two files:
+  - auth Interceptor To append the Access Token to each outgoing request
+  - error Interceptor to handle the http error 
+- Guards : indsid this we have one file :
+  - auth Guard : this is used to protect routes and just allow authenticated users to access them
+- metareducers: we have here:
+  - storage meta reducer: which is used to save current auth state in the storage so when we refresh a page we don't loose the credential  for the current logged in user
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Auth Module
+we have two pages here:
+- Login Page 
+- Register Page.
 
-## Running unit tests
+When the user clicks on Login button , The Login Action is dispatched and a request to auth server is made to authenticate the user , when the request is returned with an access token (success) the setToken action is fired to store the token in a cookie for 15 mintues and the user will be redirected either to the home page or the page that was trying to access. And the auth state is Updated 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Stories Module
+We have to pages here:
+  - Stories List :
+     This page has two tabs with two categories `Science` & `World`,
+     each tab has a search input to allow the user to search trow sories
+     and a list of stories returned by the server ,
+     In case of search articles is triggered the user will be able to load more data when clicking on `Load More` Button 
+ -  Story Detail:
+    this  will show the details of a selected story along with comments on it (`note`: `https://developer.nytimes.com/docs/community-api-product/1/overview` never being able to process with page , it was loading forever )
+ 
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Frontend Libraries:
+  - Angular material 
+  - Bootstrap library
+  - ngx spinner 
+  - toaster 
