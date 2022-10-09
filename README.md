@@ -5,7 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Run The Application
  - clone the project to your machine.
  - install packages used by Runining `npm install`.
- - navigate to project folder and Run `ng server`.
+ - navigate to project folder and Run `ng serve`.
  - since we are using jsonserver we need to run that server on 
    - go to auth-server by typing `cd auth-server`
    - Run `npm run start-auth`
